@@ -6,11 +6,11 @@ export default class KiemeltKep {
         this.megjelenit();
     }
     megjelenit() {
-        let kod = `<div class="kartya">
+        let kod = `<button>BAL</button><div class="kartya">
             <img src="${this.#obj.src}" alt="${this.#obj.cim}">
             <h3>${this.#obj.cim}</h3>
             <p>${this.#obj.leiras}</p>
-        </div>`;
+        </div><button>JOBB</button>`;
         this.szuloElem.insertAdjacentHTML("beforeend", kod);
     }
 }
