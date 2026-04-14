@@ -1,20 +1,14 @@
 import { KEPEKLISTA } from "./adat.js";
 import Kepek from "./Kepek.js";
+import KiemeltKep from "./KiemeltKep.js";
 
-const szuloELEM = document.querySelector(".kartyatarto")
+const szuloELEM = document.querySelector(".kartyatarto");
+const nagyKepELEM = document.querySelector(".kijelolt");
 
+new KiemeltKep(KEPEKLISTA,szuloELEM);
 new Kepek(KEPEKLISTA,szuloELEM);
 
 window.addEventListener("kivalaszt", function(event) {
-    const osszesKartya = document.querySelectorAll(".kartya");
-    const aktivalando = osszesKartya[event.detail];
-    
-    const marKiVoltValasztva = aktivalando.classList.contains("kivalasztott");
-    osszesKartya.forEach(kartya => {
-        kartya.classList.remove("kivalasztott");
-    });
-
-    if (!marKiVoltValasztva) {
-        aktivalando.classList.add("kivalasztott");
-    }
+    nagyKepELEM.innerHTML=""
+    new KiemeltKep(KEPEKLISTA[event.detail],nagyKepELEM)
 });
